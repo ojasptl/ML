@@ -19,6 +19,12 @@ func main() {
 		nn: "1",
 	}
 	fmt.Print(anonymous_struct)
+
+	maker := engine{}
+	maker.brand = "Toyota"
+	maker.model = "Corolla"
+	maker.power = 1000
+	fmt.Println(maker)
 }
 
 type normal_struct struct {
@@ -42,7 +48,37 @@ func new_normal_struct() normal_struct {
 		fmt.Println("False")
 	}
 	// fmt.Println(nor_instance)
+	nested_struct()
+	// used strfuct with new method
+
+	engine := engine{power: 1000}
+	fmt.Print(engine.getPower())
 	return nor_instance
 }
 
 // defining anonymous struct
+
+// embedded struct
+
+type car struct {
+	brand string
+	model string
+}
+
+type engine struct {
+	power int
+	car
+}
+
+func (e engine) getPower() int {
+	return e.power
+}
+
+func nested_struct() {
+	// nested struct
+	crt := car{
+		brand: "Toyota",
+		model: "Corolla",
+	}
+	fmt.Println(crt)
+}
