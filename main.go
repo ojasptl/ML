@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go_prg/interface1"
 	"go_prg/package1"
 )
 
@@ -19,7 +20,8 @@ func main() {
 		nn: "1",
 	}
 	fmt.Print(anonymous_struct)
-
+	ghn, _, _ := interface1.Interface3()
+	fmt.Print(ghn)
 	maker := engine{}
 	maker.brand = "Toyota"
 	maker.model = "Corolla"
