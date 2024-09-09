@@ -94,3 +94,15 @@ func new123(user1 map[string]user) (deleted bool, err error) {
 	}
 	return false, errors.New("Error")
 }
+
+func Add(x, y int) int {
+	return x + y
+}
+
+// this helps to integrate any function with the signature func(int, int) int
+func Aggregate(x int, y int, z int, arithmetic func(int, int) int) int {
+	mn := make(map[string]int)
+	mn["name"] = 1
+
+	return arithmetic(arithmetic(x, y), z)
+}

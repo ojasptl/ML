@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"go_prg/interface1"
 	"go_prg/package1"
@@ -8,6 +9,12 @@ import (
 
 func main() {
 	// fmt.Println("Hello, World!")
+	a := []string{"a", "b", "c"}
+	for _, name := range a {
+		// for loop for list gives index and value both
+		fmt.Println(name)
+	}
+	fmt.Print(interface1.Aggregate(1, 2, 3, interface1.Add))
 	package1.PrintHelloWorld()
 	fmt.Print(new_normal_struct())
 	anonymous_struct := struct {
@@ -83,4 +90,16 @@ func nested_struct() {
 		model: "Corolla",
 	}
 	fmt.Println(crt)
+}
+func main1(a int, b string) (string, error) {
+	h := make(map[string]map[string]int)
+	m, ok := h["a"]["b"]
+	if m == a {
+		fmt.Print(m, ok)
+
+		return " " + b, nil
+	}
+	// abn := 1
+	fmt.Print(m, ok)
+	return " ", errors.New("Error")
 }
